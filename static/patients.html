@@ -7,7 +7,7 @@
         }).done(function(data) {
             console.log(data);
             data.forEach((patient) => {
-                $('#patients').append('<option value="' + patient + '">'+patient+'</option>');
+                $('#patients').append('<option>'+patient+'</option>');
             })
         })
 
