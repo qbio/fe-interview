@@ -1,0 +1,33 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        $.ajax({
+            url:'http://localhost:3000/api'
+        }).done(function(data) {
+            console.log(data);
+            data.forEach((patient) => {
+                $('#patients').append('<option value="' + patient + '">'+patient+'</option>');
+            })
+        })
+
+
+        $(document).on('change', '#patients', function() {
+            $.ajax({
+                url: 'http://localhost:3000/api/patientMeasurements/'+$('#patients').val()
+            }).done((data) => {
+                data.forEach((measurement) => {
+                    $('#measurements').append('<div>' + measurement.date + ' ' + measurement.value + '</div>')
+                })
+            })
+        })
+    </script>
+
+<body>
+    <select id="patients"></select>
+
+    <div id="measurements">
+        <div>Measurements:</div>
+    </div>
+</body>
+</html>
