@@ -18,12 +18,3 @@ app.get('/api/patientMeasurements/:patient', api.getPatientMeasurements)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
-// const server = http.createServer(requestHandler)
-
-// server.listen(port, (err) => {
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-
-//   console.log(`server is listening on ${port}`)
-// })
